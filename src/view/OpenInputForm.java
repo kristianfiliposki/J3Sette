@@ -5,15 +5,29 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Finestra interna (JInternalFrame) che mostra un form di input per
+ * inserire il numero di giocatori e il nome del giocatore principale.
+ * Fornisce un metodo per aprire il dialog e restituire i dati inseriti.
+ */
 public class OpenInputForm extends JInternalFrame {
 
+    /**
+     * Costruisce la finestra interna con titolo, dimensioni e proprietà di ridimensionamento.
+     */
     public OpenInputForm() {
         super("Input Form", true, true, true, true);
         setSize(400, 300);
         setVisible(true);
     }
 
-    // Metodo che mostra il dialog e restituisce i dati inseriti
+    /**
+     * Mostra un dialog modale per l'inserimento del numero di giocatori e del nome principale.
+     * Valida i dati inseriti e restituisce i valori se confermati.
+     *
+     * @return Una lista di stringhe contenente il numero di giocatori e il nome principale,
+     *         oppure una lista vuota se l'utente annulla.
+     */
     public List<String> openInputForm() {
         List<String> result = new ArrayList<>();
         JDialog inputDialog = new JDialog((Frame) null, "Dati Giocatori", true);
@@ -72,9 +86,9 @@ public class OpenInputForm extends JInternalFrame {
         inputDialog.setVisible(true);
 
         if (confirmed[0]) {
-            return result; // Dati inseriti
+            return result;
         } else {
-            return new ArrayList<>(); // Nessun dato (utente ha annullato)
+            return new ArrayList<>();
         }
     }
 }
